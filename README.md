@@ -43,7 +43,7 @@ With professional experience in **System Analysis** and **Product Development** 
 
 ### 📜 Professional Experience & Certifications
 
-- **Co-Op Application Developer & System Analyst** @ *Channels by stc*
+- **Co-Op IT Business Analyst** @ *Channels by stc*
 - **Digital Products Intern (IoT)** @ *Al-Rakeen*
 - **Certified AI Specialist** (SDAIA & KAUST)
 - **AI Product Manager Nanodegree** (Udacity)
