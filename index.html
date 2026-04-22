@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdulmalek Alghamdi — Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --bg-dark: #1a1815;
+    --ink: #1a1815;
+    --ink-soft: #3d3a35;
+    --ink-muted: #6b6862;
+    --paper: #ebe6dc;
+    --accent: #c8451d;
+    --accent-soft: #e8e2d4;
+    --line: rgba(26, 24, 21, 0.12);
+    --line-strong: rgba(26, 24, 21, 0.35);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    line-height: 1.5;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Grain texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ═══════════ NAVIGATION ═══════════ */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 24px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    mix-blend-mode: difference;
+    color: #f4f1ea;
+  }
+
+  .nav-logo {
+    font-family: 'Instrument Serif', serif;
+    font-size: 24px;
+    font-style: italic;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .nav-links a {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    padding: 4px 0;
+    transition: opacity 0.3s;
+  }
+
+  .nav-links a:hover {
+    opacity: 0.6;
+  }
+
+  /* ═══════════ HERO ═══════════ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: 120px 0 80px;
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-muted);
+    margin-bottom: 80px;
+    animation: fadeIn 1s ease-out;
+  }
+
+  .hero-meta span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-meta span::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .hero-title {
+    font-size: clamp(56px, 11vw, 180px);
+    font-weight: 300;
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    margin-bottom: 40px;
+  }
+
+  .hero-title .italic {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .hero-title .line {
+    display: block;
+    overflow: hidden;
+  }
+
+  .hero-title .line span {
+    display: inline-block;
+    animation: slideUp 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-title .line:nth-child(1) span { animation-delay: 0.1s; }
+  .hero-title .line:nth-child(2) span { animation-delay: 0.25s; }
+  .hero-title .line:nth-child(3) span { animation-delay: 0.4s; }
+
+  .hero-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 60px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    animation: fadeIn 1s ease-out 0.6s both;
+  }
+
+  .hero-description {
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 520px;
+    font-weight: 400;
+  }
+
+  .hero-description em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-location {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-muted);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-self: end;
+  }
+
+  .hero-location strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* ═══════════ MARQUEE ═══════════ */
+  .marquee {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 24px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    gap: 60px;
+    animation: scroll 40s linear infinite;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 38px;
+  }
+
+  .marquee-track span {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .marquee-track span::after {
+    content: '✦';
+    font-size: 24px;
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ═══════════ SECTION HEADER ═══════════ */
+  .section {
+    padding: 120px 0;
+    position: relative;
+  }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 60px;
+    margin-bottom: 80px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-muted);
+  }
+
+  .section-title {
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .section-title .italic {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+  }
+
+  /* ═══════════ ABOUT ═══════════ */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-text {
+    font-size: 22px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  .about-text p + p {
+    margin-top: 24px;
+  }
+
+  .about-text em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .stat {
+    background: var(--bg);
+    padding: 32px 24px;
+    position: relative;
+  }
+
+  .stat-number {
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-muted);
+    margin-top: 12px;
+  }
+
+  /* ═══════════ EXPERIENCE ═══════════ */
+  .experience-item {
+    display: grid;
+    grid-template-columns: 180px 1fr auto;
+    gap: 40px;
+    padding: 48px 0;
+    border-bottom: 1px solid var(--line);
+    transition: padding 0.4s ease;
+    cursor: pointer;
+  }
+
+  .experience-item:hover {
+    padding-left: 20px;
+  }
+
+  .experience-item:first-child {
+    border-top: 1px solid var(--line);
+  }
+
+  .exp-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-muted);
+    padding-top: 8px;
+  }
+
+  .exp-content h3 {
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .exp-content h3 .company {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .exp-desc {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-top: 16px;
+    max-width: 640px;
+  }
+
+  .exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .exp-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border: 1px solid var(--line-strong);
+    color: var(--ink-soft);
+  }
+
+  .exp-arrow {
+    font-family: 'Instrument Serif', serif;
+    font-size: 32px;
+    color: var(--ink-muted);
+    transition: transform 0.3s, color 0.3s;
+    align-self: center;
+  }
+
+  .experience-item:hover .exp-arrow {
+    transform: translateX(8px);
+    color: var(--accent);
+  }
+
+  /* ═══════════ PROJECTS ═══════════ */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .project-card {
+    background: var(--paper);
+    padding: 40px;
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px -20px rgba(26, 24, 21, 0.2);
+  }
+
+  .project-card.featured {
+    grid-column: span 2;
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 32px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .project-card.featured .project-header {
+    color: rgba(244, 241, 234, 0.6);
+  }
+
+  .project-card:not(.featured) .project-header {
+    color: var(--ink-muted);
+  }
+
+  .project-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 500;
+  }
+
+  .project-badge::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: currentColor;
+    border-radius: 50%;
+  }
+
+  .project-title {
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+  }
+
+  .project-title .italic {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+  }
+
+  .project-subtitle {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 20px;
+    margin-bottom: 32px;
+    opacity: 0.8;
+  }
+
+  .project-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    opacity: 0.85;
+  }
+
+  .project-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-top: 24px;
+    border-top: 1px solid currentColor;
+    border-color: var(--line);
+  }
+
+  .project-card.featured .project-meta {
+    border-color: rgba(244, 241, 234, 0.15);
+  }
+
+  .project-meta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.5;
+    margin-bottom: 6px;
+  }
+
+  .project-meta-value {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* ═══════════ HACKATHONS ═══════════ */
+  .hackathons-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hack-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 40px;
+    padding: 48px 0;
+    border-bottom: 1px solid var(--line);
+    transition: all 0.4s ease;
+    position: relative;
+  }
+
+  .hack-item:first-child {
+    border-top: 1px solid var(--line);
+  }
+
+  .hack-item:hover {
+    background: var(--paper);
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .hack-year {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+
+  .hack-result {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .hack-medal {
+    font-size: 20px;
+  }
+
+  .hack-place {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .hack-name {
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .hack-name .italic {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--ink-muted);
+  }
+
+  .hack-desc {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 680px;
+    margin-bottom: 16px;
+  }
+
+  .hack-desc em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hack-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ═══════════ SKILLS ═══════════ */
+  .skills-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .skill-column {
+    background: var(--bg);
+    padding: 40px 32px;
+  }
+
+  .skill-column h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .skill-column ul {
+    list-style: none;
+  }
+
+  .skill-column li {
+    padding: 10px 0;
+    font-size: 17px;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s, padding 0.3s;
+  }
+
+  .skill-column li:last-child {
+    border-bottom: none;
+  }
+
+  .skill-column li:hover {
+    color: var(--accent);
+    padding-left: 8px;
+  }
+
+  .skill-column li span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-muted);
+  }
+
+  /* ═══════════ CERTIFICATIONS ═══════════ */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .cert-card {
+    padding: 32px 28px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cert-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .cert-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .cert-card:hover {
+    transform: translateY(-4px);
+    background: var(--bg);
+  }
+
+  .cert-issuer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .cert-name {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+
+  .cert-name .italic {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+  }
+
+  .cert-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-muted);
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  /* ═══════════ EDUCATION ═══════════ */
+  .education {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .education::before {
+    content: '02';
+    position: absolute;
+    top: -40px;
+    right: -20px;
+    font-family: 'Instrument Serif', serif;
+    font-size: 400px;
+    font-style: italic;
+    color: rgba(244, 241, 234, 0.03);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .edu-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .edu-degree {
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .edu-degree .italic {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+  }
+
+  .edu-school {
+    font-size: 20px;
+    opacity: 0.7;
+    margin-bottom: 32px;
+  }
+
+  .edu-highlights {
+    list-style: none;
+    position: relative;
+    z-index: 2;
+  }
+
+  .edu-highlights li {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(244, 241, 234, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .edu-highlights li:last-child {
+    border-bottom: none;
+  }
+
+  .edu-highlights .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.6;
+  }
+
+  .edu-highlights .value {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 24px;
+    color: var(--accent);
+  }
+
+  /* ═══════════ CONTACT ═══════════ */
+  .contact {
+    padding: 160px 0 100px;
+    text-align: center;
+    position: relative;
+  }
+
+  .contact-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--ink-muted);
+    margin-bottom: 32px;
+  }
+
+  .contact-title {
+    font-size: clamp(56px, 9vw, 140px);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: 60px;
+  }
+
+  .contact-title .italic {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .contact-email {
+    display: inline-block;
+    font-size: 32px;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 16px 40px;
+    border: 1px solid var(--ink);
+    border-radius: 100px;
+    transition: all 0.3s ease;
+    margin-bottom: 60px;
+  }
+
+  .contact-email:hover {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .contact-links a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s;
+  }
+
+  .contact-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .contact-links a:hover {
+    color: var(--accent);
+  }
+
+  .contact-links a:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* ═══════════ FOOTER ═══════════ */
+  footer {
+    padding: 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-muted);
+  }
+
+  /* ═══════════ ANIMATIONS ═══════════ */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ═══════════ RESPONSIVE ═══════════ */
+  @media (max-width: 900px) {
+    .container { padding: 0 24px; }
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+
+    .hero { padding: 100px 0 60px; }
+    .hero-bottom { grid-template-columns: 1fr; gap: 40px; }
+    .hero-location { align-self: start; }
+
+    .section { padding: 80px 0; }
+    .section-header { grid-template-columns: 1fr; gap: 20px; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+
+    .experience-item {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .exp-arrow { display: none; }
+
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-column: span 1; }
+
+    .hack-item {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .hack-year { font-size: 42px; }
+    .hack-name { font-size: 22px; }
+
+    .skills-wrapper { grid-template-columns: 1fr; }
+
+    .certs-grid { grid-template-columns: 1fr; }
+
+    .education {
+      padding: 48px 32px;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .marquee-track { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">A.A</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Work</a>
+    <a href="#projects">Projects</a>
+    <a href="#hackathons">Hackathons</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-meta">
+      <span>Available for opportunities — 2026</span>
+      <span>Portfolio / vol.01</span>
+    </div>
+
+    <h1 class="hero-title">
+      <span class="line"><span>Abdulmalek</span></span>
+      <span class="line"><span><em class="italic">Alghamdi</em>—</span></span>
+      <span class="line"><span>the analyst.</span></span>
+    </h1>
+
+    <div class="hero-bottom">
+      <p class="hero-description">
+        Computer Science & Engineering senior turned <em>systems thinker</em>. I translate messy business problems into clear technical blueprints — bridging stakeholders, processes, and code into solutions that actually ship.
+      </p>
+      <div class="hero-location">
+        <span>Based in</span>
+        <strong>Saudi Arabia</strong>
+        <span style="margin-top: 12px;">Currently at</span>
+        <strong>Al-Rakeen × Stc Alumni</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ MARQUEE ═══════════ -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Systems Analysis</span>
+    <span>Business Requirements</span>
+    <span>Product Thinking</span>
+    <span>Process Modeling</span>
+    <span>Digital Transformation</span>
+    <span>Systems Analysis</span>
+    <span>Business Requirements</span>
+    <span>Product Thinking</span>
+    <span>Process Modeling</span>
+    <span>Digital Transformation</span>
+  </div>
+</div>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section class="section reveal" id="about">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">01 / About</div>
+      <h2 class="section-title">A bridge between <span class="italic">business</span> & <span class="italic">engineering</span>.</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a final-year <em>Computer Science & Engineering</em> student at the University of Hafr Al-Batin, graduating <em>2nd in my cohort</em> in 2026. But my path isn't pure code.</p>
+        <p>I found my edge in the <em>in-between</em> — sitting with stakeholders, mapping their intent, and handing engineers a blueprint they can build from. At <em>stc</em> I shaped digital channel requirements. At <em>Al-Rakeen</em> I turned IoT concepts into real prototypes.</p>
+        <p>Certified by PMI, ITIL, and Udacity's AI Product Manager program. I write user stories, draw BPMN diagrams, and argue with SQL — all in a day's work.</p>
+      </div>
+
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-number">2<sup style="font-size: 28px;">nd</sup></div>
+          <div class="stat-label">Cohort Rank</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">04</div>
+          <div class="stat-label">Hackathons</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">03</div>
+          <div class="stat-label">Certifications</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Courses</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ EDUCATION ═══════════ -->
+<section class="section reveal">
+  <div class="container">
+    <div class="education">
+      <div>
+        <div class="edu-label">02 / Education</div>
+        <h3 class="edu-degree">Bachelor of <span class="italic">Science</span></h3>
+        <div class="edu-school">Computer Science & Engineering — University of Hafr Al-Batin</div>
+      </div>
+      <ul class="edu-highlights">
+        <li>
+          <span class="label">Graduation</span>
+          <span class="value">2026</span>
+        </li>
+        <li>
+          <span class="label">Cohort Ranking</span>
+          <span class="value">2nd</span>
+        </li>
+        <li>
+          <span class="label">Saudi Council of Engineers</span>
+          <span class="value">#1009232</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ EXPERIENCE ═══════════ -->
+<section class="section reveal" id="experience">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">03 / Experience</div>
+      <h2 class="section-title">Where I've <span class="italic">worked</span>.</h2>
+    </div>
+
+    <div class="experience-list">
+      <div class="experience-item">
+        <div class="exp-date">Jun — Dec 2025</div>
+        <div class="exp-content">
+          <h3>IT Business Analyst <span class="company">— Channels by stc</span></h3>
+          <p class="exp-desc">
+            Gathered, analyzed, and documented business and system requirements for digital channel applications. Liaised between business stakeholders and technical teams, producing process flows, user stories, and use cases. Contributed to <em>AOUN AI</em> — qualified for Stage 2 of the Channels by stc Hackathon.
+          </p>
+          <div class="exp-tags">
+            <span class="exp-tag">Riyadh</span>
+            <span class="exp-tag">Co-op</span>
+            <span class="exp-tag">Requirements</span>
+            <span class="exp-tag">User Stories</span>
+            <span class="exp-tag">BPMN</span>
+          </div>
+        </div>
+        <div class="exp-arrow">→</div>
+      </div>
+
+      <div class="experience-item">
+        <div class="exp-date">Jan — Apr 2026</div>
+        <div class="exp-content">
+          <h3>Product Development Intern <span class="company">— Al-Rakeen</span></h3>
+          <p class="exp-desc">
+            Supported end-to-end product lifecycle for <em>IoT-based</em> digital solutions, from concept validation to prototyping. Translated business objectives into functional and system requirements, collaborating with cross-functional teams to ship features.
+          </p>
+          <div class="exp-tags">
+            <span class="exp-tag">Internship</span>
+            <span class="exp-tag">IoT</span>
+            <span class="exp-tag">Prototyping</span>
+            <span class="exp-tag">Cross-functional</span>
+          </div>
+        </div>
+        <div class="exp-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROJECTS ═══════════ -->
+<section class="section reveal" id="projects">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">04 / Projects</div>
+      <h2 class="section-title">Selected <span class="italic">work</span>.</h2>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card featured">
+        <div class="project-header">
+          <span>Capstone / 2026</span>
+          <span class="project-badge">Featured</span>
+        </div>
+        <h3 class="project-title">HUMEX</h3>
+        <p class="project-subtitle">AI Occupancy Measurement System</p>
+        <p class="project-desc">
+          Led system analysis, requirements definition, and architecture design for an AI platform delivering real-time occupancy monitoring. Built a computer vision pipeline and an interactive dashboard for facility management — from a single messy problem statement to a full working prototype.
+        </p>
+        <div class="project-meta">
+          <div>
+            <div class="project-meta-label">My Role</div>
+            <div class="project-meta-value">Systems Analyst & Architect</div>
+          </div>
+          <div>
+            <div class="project-meta-label">Stack</div>
+            <div class="project-meta-value">YOLOv8 · Python · OpenCV · React · Streamlit</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HACKATHONS ═══════════ -->
+<section class="section reveal" id="hackathons">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">05 / Hackathons</div>
+      <h2 class="section-title">Built under <span class="italic">pressure</span>.</h2>
+    </div>
+
+    <div class="hackathons-list">
+      <div class="hack-item">
+        <div class="hack-year">2024</div>
+        <div class="hack-content">
+          <div class="hack-result">
+            <span class="hack-medal">🥈</span>
+            <span class="hack-place">2nd Place</span>
+          </div>
+          <h3 class="hack-name">CyberThon <span class="italic">— Hafr Al-Batin</span></h3>
+          <p class="hack-desc">
+            Built a website that <em>detects phishing links and fraudulent messages</em> — helping users identify scams before falling victim. Finished in 2nd place, recognized for the clarity of the analysis behind the detection logic.
+          </p>
+          <div class="hack-tags">
+            <span class="exp-tag">Cybersecurity</span>
+            <span class="exp-tag">Phishing Detection</span>
+            <span class="exp-tag">Web App</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hack-item">
+        <div class="hack-year">2024</div>
+        <div class="hack-content">
+          <div class="hack-result">
+            <span class="hack-medal">🏁</span>
+            <span class="hack-place">Finalist</span>
+          </div>
+          <h3 class="hack-name">Absher Tuwaiq Hackathon <span class="italic">— RASHID</span></h3>
+          <p class="hack-desc">
+            Analyzed access-control workflows for government entities and designed <em>RASHID</em> — a GPT-powered smart gate system. Reached the finals with a solution that reimagines how government access is granted and audited.
+          </p>
+          <div class="hack-tags">
+            <span class="exp-tag">GPT / AI</span>
+            <span class="exp-tag">Gov. Tech</span>
+            <span class="exp-tag">Access Control</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hack-item">
+        <div class="hack-year">2025</div>
+        <div class="hack-content">
+          <div class="hack-result">
+            <span class="hack-medal">◈</span>
+            <span class="hack-place">Stage 2 Qualifier</span>
+          </div>
+          <h3 class="hack-name">Channels by stc Hackathon <span class="italic">— AOUN AI</span></h3>
+          <p class="hack-desc">
+            Contributed to <em>AOUN AI</em>, an intelligent request management platform built during the stc hackathon. Shaped the business requirements and workflow analysis that powered the product's core logic — qualifying to Stage 2.
+          </p>
+          <div class="hack-tags">
+            <span class="exp-tag">AI Platform</span>
+            <span class="exp-tag">Request Mgmt</span>
+            <span class="exp-tag">Business Analysis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hack-item">
+        <div class="hack-year">2023</div>
+        <div class="hack-content">
+          <div class="hack-result">
+            <span class="hack-medal">◉</span>
+            <span class="hack-place">Participant</span>
+          </div>
+          <h3 class="hack-name">3rd Programming Hackathon <span class="italic">— University of Hafr Al-Batin</span></h3>
+          <p class="hack-desc">
+            Designed and built an <em>electronic attendance system</em> for university students — streamlining how class attendance is tracked and reported. My first taste of turning a real campus pain-point into a working product.
+          </p>
+          <div class="hack-tags">
+            <span class="exp-tag">EdTech</span>
+            <span class="exp-tag">Attendance System</span>
+            <span class="exp-tag">First Hackathon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SKILLS ═══════════ -->
+<section class="section reveal">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">06 / Skills</div>
+      <h2 class="section-title">The <span class="italic">toolkit</span>.</h2>
+    </div>
+
+    <div class="skills-wrapper">
+      <div class="skill-column">
+        <h4>Analysis & Process</h4>
+        <ul>
+          <li>Business Requirements <span>01</span></li>
+          <li>Systems Analysis & Design <span>02</span></li>
+          <li>Functional & Non-Functional Requirements <span>03</span></li>
+          <li>UML & BPMN <span>04</span></li>
+          <li>SDLC <span>05</span></li>
+          <li>Stakeholder Management <span>06</span></li>
+        </ul>
+      </div>
+
+      <div class="skill-column">
+        <h4>Delivery & Tools</h4>
+        <ul>
+          <li>Agile / Scrum <span>01</span></li>
+          <li>Jira & Confluence <span>02</span></li>
+          <li>API Integration — Postman <span>03</span></li>
+          <li>Project Management <span>04</span></li>
+          <li>ITIL 4 Framework <span>05</span></li>
+          <li>Risk & Governance <span>06</span></li>
+        </ul>
+      </div>
+
+      <div class="skill-column">
+        <h4>Technical Foundation</h4>
+        <ul>
+          <li>SQL & Databases <span>01</span></li>
+          <li>Data Analysis <span>02</span></li>
+          <li>Java & Spring Boot <span>03</span></li>
+          <li>Python <span>04</span></li>
+          <li>Cloud Computing — Huawei <span>05</span></li>
+          <li>AI / Generative AI <span>06</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CERTIFICATIONS ═══════════ -->
+<section class="section reveal">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">07 / Certifications</div>
+      <h2 class="section-title">Credentialed & <span class="italic">current</span>.</h2>
+    </div>
+
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-issuer">PMI</div>
+        <h3 class="cert-name">Certified Associate in <span class="italic">Project Management</span></h3>
+        <div class="cert-date">Valid: May 2026 — May 2029</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-issuer">PeopleCert</div>
+        <h3 class="cert-name">ITIL 4 <span class="italic">Foundation</span></h3>
+        <div class="cert-date">Valid: Jun 2026 — Jun 2029</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-issuer">Udacity</div>
+        <h3 class="cert-name">AI Product Manager <span class="italic">Nanodegree</span></h3>
+        <div class="cert-date">Issued: Oct 2025</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-issuer">IBMI</div>
+        <h3 class="cert-name">Digital <span class="italic">Transformation</span></h3>
+        <div class="cert-date">Issued: 2026</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-issuer">Product School</div>
+        <h3 class="cert-name">Product-Led Growth <span class="italic">Micro-Cert</span></h3>
+        <div class="cert-date">Issued: 2026</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-issuer">SDAIA</div>
+        <h3 class="cert-name">Fundamentals of <span class="italic">Artificial Intelligence</span></h3>
+        <div class="cert-date">Issued: 2024</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-issuer">Tuwaiq Academy</div>
+        <h3 class="cert-name">Risk Management in <span class="italic">Generative AI</span></h3>
+        <div class="cert-date">Issued: 2025</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-issuer">Huawei</div>
+        <h3 class="cert-name">Cloud <span class="italic">Computing</span></h3>
+        <div class="cert-date">Issued: 2024</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-issuer">NCA · SITE · KAUST</div>
+        <h3 class="cert-name">Cybersecurity <span class="italic">Training</span></h3>
+        <div class="cert-date">6+ specialized courses · 2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section class="contact reveal" id="contact">
+  <div class="container">
+    <div class="contact-label">08 / Let's talk</div>
+    <h2 class="contact-title">Got a <span class="italic">problem</span> worth<br>analyzing?</h2>
+    <a href="mailto:Abdulmalek.Alghamdi@outlook.com" class="contact-email">
+      Abdulmalek.Alghamdi@outlook.com →
+    </a>
+    <div class="contact-links">
+      <a href="https://linkedin.com/in/abdulmalek-alghamdi-csegr" target="_blank">LinkedIn</a>
+      <a href="https://github.com/AbdulmalekAlghamdi" target="_blank">GitHub</a>
+      <a href="tel:+966568728387">+966 56 872 8387</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Abdulmalek Alghamdi</span>
+  <span>Designed with intent</span>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Smooth parallax on hero
+  const hero = document.querySelector('.hero-title');
+  document.addEventListener('mousemove', (e) => {
+    if (!hero) return;
+    const x = (e.clientX / window.innerWidth - 0.5) * 8;
+    const y = (e.clientY / window.innerHeight - 0.5) * 8;
+    hero.style.transform = `translate(${x}px, ${y}px)`;
+  });
+</script>
+
+</body>
+</html>
