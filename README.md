@@ -1,6 +1,9 @@
-<!-- ===================== BANNER ===================== -->
+<!-- ╔══════════════ HERO BANNER ══════════════╗ -->
+
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12&height=200&section=header&text=Abdulmalek%20Alghamdi&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=AI%20Solutions%20Specialist%20%7C%20Full-Stack%20Developer&descAlignY=58&descSize=18" alt="banner"/>
+
+![Header](https://capsule-render.vercel.app/api?type=venom&color=gradient&customColorList=12,20,30&height=300&section=header&text=ABDULMALEK%20ALGHAMDI&fontSize=70&fontColor=ffffff&animation=twinkling&fontAlignY=38&desc=System%20Architect%20×%20AI%20Engineer%20×%20Top%203%20of%20Graduates&descAlignY=58&descSize=20&fontStyle=italic)
+
 </div>
 
 <!-- ===================== TYPING ANIMATION ===================== -->
