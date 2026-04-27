@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%">
+  <defs>
+    <radialGradient id="radarBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0a1a2e"/>
+      <stop offset="100%" stop-color="#000"/>
+    </radialGradient>
+
+    <linearGradient id="radarFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ffe7" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#9b59b6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ff3838" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <filter id="radarGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="600" height="600" fill="url(#radarBg)"/>
+
+  <!-- Title -->
+  <text x="300" y="35" text-anchor="middle" fill="#00ffe7" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" letter-spacing="3">
+    ◆ SKILL RADAR · COMBAT ASSESSMENT ◆
+  </text>
+
+  <!-- Concentric rings -->
+  <g transform="translate(300, 320)" stroke="#00ffe7" fill="none" opacity="0.25">
+    <polygon points="0,-200 173.2,-100 173.2,100 0,200 -173.2,100 -173.2,-100" stroke-width="1"/>
+    <polygon points="0,-160 138.6,-80 138.6,80 0,160 -138.6,80 -138.6,-80" stroke-width="1"/>
+    <polygon points="0,-120 103.9,-60 103.9,60 0,120 -103.9,60 -103.9,-60" stroke-width="1"/>
+    <polygon points="0,-80 69.3,-40 69.3,40 0,80 -69.3,40 -69.3,-40" stroke-width="1"/>
+    <polygon points="0,-40 34.6,-20 34.6,20 0,40 -34.6,20 -34.6,-20" stroke-width="1"/>
+  </g>
+
+  <!-- Axis lines -->
+  <g transform="translate(300, 320)" stroke="#00ffe7" opacity="0.3">
+    <line x1="0" y1="0" x2="0" y2="-200"/>
+    <line x1="0" y1="0" x2="173.2" y2="-100"/>
+    <line x1="0" y1="0" x2="173.2" y2="100"/>
+    <line x1="0" y1="0" x2="0" y2="200"/>
+    <line x1="0" y1="0" x2="-173.2" y2="100"/>
+    <line x1="0" y1="0" x2="-173.2" y2="-100"/>
+  </g>
+
+  <!-- Skill polygon (the actual data) -->
+  <!-- Skills: System Analysis 95, AI/ML 85, Backend 88, Frontend 78, Architecture 92, Soft Skills 95 -->
+  <g transform="translate(300, 320)">
+    <polygon
+      points="0,-190 147.2,-85 152.5,88 0,190 -159.4,92 -164.5,-95"
+      fill="url(#radarFill)"
+      stroke="#00ffe7"
+      stroke-width="2"
+      filter="url(#radarGlow)"/>
+
+    <!-- Data points -->
+    <circle cx="0" cy="-190" r="5" fill="#00ffe7" filter="url(#radarGlow)"/>
+    <circle cx="147.2" cy="-85" r="5" fill="#00ffe7" filter="url(#radarGlow)"/>
+    <circle cx="152.5" cy="88" r="5" fill="#00ffe7" filter="url(#radarGlow)"/>
+    <circle cx="0" cy="190" r="5" fill="#00ffe7" filter="url(#radarGlow)"/>
+    <circle cx="-159.4" cy="92" r="5" fill="#00ffe7" filter="url(#radarGlow)"/>
+    <circle cx="-164.5" cy="-95" r="5" fill="#00ffe7" filter="url(#radarGlow)"/>
+  </g>
+
+  <!-- Labels with scores -->
+  <g font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#fff">
+    <!-- Top: System Analysis -->
+    <text x="300" y="100" text-anchor="middle">SYSTEM ANALYSIS</text>
+    <text x="300" y="118" text-anchor="middle" fill="#00ffe7" font-size="14">95</text>
+
+    <!-- Top right: Backend -->
+    <text x="500" y="225" text-anchor="middle">BACKEND</text>
+    <text x="500" y="243" text-anchor="middle" fill="#00ffe7" font-size="14">88</text>
+
+    <!-- Bottom right: Frontend -->
+    <text x="500" y="425" text-anchor="middle">FRONTEND</text>
+    <text x="500" y="443" text-anchor="middle" fill="#00ffe7" font-size="14">78</text>
+
+    <!-- Bottom: AI / ML -->
+    <text x="300" y="545" text-anchor="middle">AI / ML</text>
+    <text x="300" y="563" text-anchor="middle" fill="#00ffe7" font-size="14">85</text>
+
+    <!-- Bottom left: Architecture -->
+    <text x="100" y="425" text-anchor="middle">ARCHITECTURE</text>
+    <text x="100" y="443" text-anchor="middle" fill="#00ffe7" font-size="14">92</text>
+
+    <!-- Top left: Soft Skills -->
+    <text x="100" y="225" text-anchor="middle">SOFT SKILLS</text>
+    <text x="100" y="243" text-anchor="middle" fill="#00ffe7" font-size="14">95</text>
+  </g>
+
+  <!-- Center indicator -->
+  <circle cx="300" cy="320" r="3" fill="#ff3838"/>
+  <text x="300" y="345" text-anchor="middle" fill="#ff3838" font-family="JetBrains Mono, monospace" font-size="9" opacity="0.7">CORE</text>
+
+  <!-- Bottom legend -->
+  <g transform="translate(50, 575)">
+    <line x1="0" y1="0" x2="20" y2="0" stroke="#00ffe7" stroke-width="2"/>
+    <text x="28" y="4" fill="#00ffe7" font-family="JetBrains Mono, monospace" font-size="10">CURRENT LEVEL</text>
+
+    <text x="450" y="4" fill="#00ffe7" font-family="JetBrains Mono, monospace" font-size="10" opacity="0.6">SCALE: 0—100</text>
+  </g>
+</svg>
